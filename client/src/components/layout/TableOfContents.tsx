@@ -1,6 +1,6 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import { cn } from "@/lib/utils";
-import { Link } from "@/components/ui/link";
+import { Link as WouterLink } from "wouter";
 import { useScrollspy } from "@/hooks/use-scrollspy";
 
 interface Heading {
@@ -36,7 +36,7 @@ export default function TableOfContents({ headings }: TableOfContentsProps) {
                   href={`#${heading.slug}`}
                   className={cn(
                     "block py-1 transition-colors",
-                    heading.level > 2 ? "pl-4" : "",
+                    heading.level && heading.level > 2 ? "pl-4" : "",
                     activeId === heading.slug
                       ? "text-primary font-medium" 
                       : "text-muted-foreground hover:text-foreground"
@@ -54,22 +54,28 @@ export default function TableOfContents({ headings }: TableOfContentsProps) {
           <h4 className="text-sm font-semibold text-foreground mb-2">Resources</h4>
           <ul className="text-sm space-y-1.5">
             <li>
-              <Link href="/docs/api-reference/authentication" className="text-primary flex items-center">
-                <span className="material-icons text-sm mr-1">description</span>
-                API Reference
-              </Link>
+              <WouterLink href="/docs/api-reference/authentication">
+                <a className="text-primary flex items-center">
+                  <span className="material-icons text-sm mr-1">description</span>
+                  API Reference
+                </a>
+              </WouterLink>
             </li>
             <li>
-              <Link href="/docs/guides" className="text-primary flex items-center">
-                <span className="material-icons text-sm mr-1">code</span>
-                Examples
-              </Link>
+              <WouterLink href="/docs/guides">
+                <a className="text-primary flex items-center">
+                  <span className="material-icons text-sm mr-1">code</span>
+                  Examples
+                </a>
+              </WouterLink>
             </li>
             <li>
-              <Link href="/docs/resources/faq" className="text-primary flex items-center">
-                <span className="material-icons text-sm mr-1">help</span>
-                FAQ
-              </Link>
+              <WouterLink href="/docs/resources/faq">
+                <a className="text-primary flex items-center">
+                  <span className="material-icons text-sm mr-1">help</span>
+                  FAQ
+                </a>
+              </WouterLink>
             </li>
           </ul>
         </div>

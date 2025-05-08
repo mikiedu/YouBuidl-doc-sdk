@@ -9,8 +9,9 @@ import { DocContent } from "@/types/docs";
 import { extractSummary } from "@/lib/markdownUtils";
 
 export default function SearchPage() {
-  const [, params] = useLocation();
-  const urlParams = new URLSearchParams(params);
+  const [location] = useLocation();
+  // Convert location params to URL search params
+  const urlParams = new URLSearchParams(window.location.search);
   const initialQuery = urlParams.get("q") || "";
   const [query, setQuery] = useState(initialQuery);
   
