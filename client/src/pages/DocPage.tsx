@@ -106,22 +106,18 @@ export default function DocPage() {
             <div className="mt-12 pt-6 border-t border-border">
               <div className="flex flex-col sm:flex-row sm:justify-between">
                 {doc.metadata?.prev ? (
-                  <WouterLink href={`/docs/${doc.metadata.prev}`}>
-                    <a className="inline-flex items-center text-primary hover:underline font-medium mb-4 sm:mb-0">
-                      <ChevronLeftIcon className="h-4 w-4 mr-1" />
-                      Previous
-                    </a>
+                  <WouterLink href={`/docs/${doc.metadata.prev}`} className="inline-flex items-center text-primary hover:underline font-medium mb-4 sm:mb-0">
+                    <ChevronLeftIcon className="h-4 w-4 mr-1" />
+                    Previous
                   </WouterLink>
                 ) : (
                   <div></div>
                 )}
                 
                 {doc.metadata?.next && (
-                  <WouterLink href={`/docs/${doc.metadata.next}`}>
-                    <a className="inline-flex items-center text-primary hover:underline font-medium">
-                      Next
-                      <ChevronRightIcon className="h-4 w-4 ml-1" />
-                    </a>
+                  <WouterLink href={`/docs/${doc.metadata.next}`} className="inline-flex items-center text-primary hover:underline font-medium">
+                    Next
+                    <ChevronRightIcon className="h-4 w-4 ml-1" />
                   </WouterLink>
                 )}
               </div>

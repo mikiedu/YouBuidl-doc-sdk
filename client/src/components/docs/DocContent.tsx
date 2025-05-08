@@ -13,87 +13,87 @@ interface DocContentProps {
 
 export default function DocContent({ content, className }: DocContentProps) {
   return (
-    <ReactMarkdown
-      className={cn("doc-content", className)}
-      components={{
-        h1: ({ children }) => (
-          <h1 id={children?.toString().toLowerCase().replace(/\s+/g, "-")}>
-            {children}
-          </h1>
-        ),
-        h2: ({ children }) => {
-          const id = children?.toString().toLowerCase().replace(/\s+/g, "-");
-          return <h2 id={id}>{children}</h2>;
-        },
-        h3: ({ children }) => {
-          const id = children?.toString().toLowerCase().replace(/\s+/g, "-");
-          return <h3 id={id}>{children}</h3>;
-        },
-        h4: ({ children }) => {
-          const id = children?.toString().toLowerCase().replace(/\s+/g, "-");
-          return <h4 id={id}>{children}</h4>;
-        },
-        h5: ({ children }) => {
-          const id = children?.toString().toLowerCase().replace(/\s+/g, "-");
-          return <h5 id={id}>{children}</h5>;
-        },
-        h6: ({ children }) => {
-          const id = children?.toString().toLowerCase().replace(/\s+/g, "-");
-          return <h6 id={id}>{children}</h6>;
-        },
-        code({ node, inline, className, children, ...props }) {
-          const match = /language-(\w+)/.exec(className || "");
-          const language = match ? match[1] : "";
-
-          if (inline) {
-            return <code className={className} {...props}>{children}</code>;
-          }
-
-          return (
-            <div className="code-block my-6">
-              <SyntaxHighlighter
-                style={atomDark}
-                language={language}
-                PreTag="div"
-                customStyle={{
-                  margin: 0,
-                  padding: "1rem",
-                  borderRadius: "0.375rem",
-                  fontSize: "0.875rem",
-                }}
-                {...props}
-              >
-                {String(children).replace(/\n$/, "")}
-              </SyntaxHighlighter>
-              <CodeCopyButton code={String(children)} />
-            </div>
-          );
-        },
-        a({ href, children }) {
-          const isInternalLink = href?.startsWith("/") || href?.startsWith("#");
-          if (isInternalLink) {
-            return <a href={href}>{children}</a>;
-          }
-          return (
-            <a href={href} target="_blank" rel="noopener noreferrer">
+    <div className={cn("doc-content", className)}>
+      <ReactMarkdown
+        components={{
+          h1: ({ children }) => (
+            <h1 id={children?.toString().toLowerCase().replace(/\s+/g, "-")}>
               {children}
-            </a>
-          );
-        },
-        img({ src, alt }) {
-          return (
-            <img 
-              src={src || ""} 
-              alt={alt || ""}
-              className="my-8 rounded-lg shadow-md"
-              loading="lazy"
-            />
-          );
-        },
-      }}
-    >
-      {content}
-    </ReactMarkdown>
+            </h1>
+          ),
+          h2: ({ children }) => {
+            const id = children?.toString().toLowerCase().replace(/\s+/g, "-");
+            return <h2 id={id}>{children}</h2>;
+          },
+          h3: ({ children }) => {
+            const id = children?.toString().toLowerCase().replace(/\s+/g, "-");
+            return <h3 id={id}>{children}</h3>;
+          },
+          h4: ({ children }) => {
+            const id = children?.toString().toLowerCase().replace(/\s+/g, "-");
+            return <h4 id={id}>{children}</h4>;
+          },
+          h5: ({ children }) => {
+            const id = children?.toString().toLowerCase().replace(/\s+/g, "-");
+            return <h5 id={id}>{children}</h5>;
+          },
+          h6: ({ children }) => {
+            const id = children?.toString().toLowerCase().replace(/\s+/g, "-");
+            return <h6 id={id}>{children}</h6>;
+          },
+          code: ({ node, className, children, ...props }: any) => {
+            const match = /language-(\w+)/.exec(className || "");
+            const language = match ? match[1] : "";
+            
+            if (!className) {
+              return <code className="font-mono text-sm bg-muted px-1.5 py-0.5 rounded" {...props}>{children}</code>;
+            }
+
+            return (
+              <div className="code-block my-6 relative">
+                <SyntaxHighlighter
+                  language={language}
+                  style={atomDark as any}
+                  PreTag="div"
+                  wrapLines={true}
+                  customStyle={{
+                    margin: 0,
+                    padding: "1rem",
+                    borderRadius: "0.375rem"
+                  }}
+                >
+                  {String(children).replace(/\n$/, "")}
+                </SyntaxHighlighter>
+                <CodeCopyButton code={String(children)} />
+              </div>
+            );
+          },
+          a: ({ href, children }) => {
+            const isInternalLink = href?.startsWith("/") || href?.startsWith("#");
+            if (isInternalLink) {
+              return <a href={href}>{children}</a>;
+            }
+            return (
+              <a href={href} target="_blank" rel="noopener noreferrer">
+                {children}
+              </a>
+            );
+          },
+          img: ({ src, alt }) => {
+            return (
+              <img 
+                src={src || ""} 
+                alt={alt || ""}
+                className="my-8 rounded-lg shadow-md"
+                loading="lazy"
+              />
+            );
+          },
+        }}
+      >
+        {content}
+      </ReactMarkdown>
+    </div>
   );
 }
 
@@ -131,7 +131,7 @@ function CodeCopyButton({ code }: { code: string }) {
     <Button 
       variant="ghost" 
       size="icon" 
-      className="copy-button"
+      className="absolute top-2 right-2 copy-button text-white/70 hover:text-white"
       onClick={handleCopy}
       title={isCopied ? "Copied!" : "Copy code"}
     >
