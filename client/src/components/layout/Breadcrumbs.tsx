@@ -20,8 +20,8 @@ export default function Breadcrumbs({ items }: BreadcrumbsProps) {
     <nav className="text-sm mb-2">
       <ol className="flex items-center space-x-1 flex-wrap">
         <li>
-          <WouterLink href="/">
-            <a className="text-muted-foreground hover:text-primary">Docs</a>
+          <WouterLink href="/" className="text-muted-foreground hover:text-primary">
+            Docs
           </WouterLink>
         </li>
         
@@ -34,8 +34,8 @@ export default function Breadcrumbs({ items }: BreadcrumbsProps) {
               {index === items.length - 1 ? (
                 <span className="text-foreground">{item.label}</span>
               ) : (
-                <WouterLink href={item.href}>
-                  <a className="text-muted-foreground hover:text-primary">{item.label}</a>
+                <WouterLink href={item.href} className="text-muted-foreground hover:text-primary">
+                  {item.label}
                 </WouterLink>
               )}
             </li>

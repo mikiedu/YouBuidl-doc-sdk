@@ -25,7 +25,7 @@ export default function HomePage() {
           <div className="flex flex-wrap justify-center gap-4">
             <Button asChild size="lg" className="gap-2">
               <WouterLink href="/docs/introduction">
-                <a>Get Started <ChevronRightIcon className="h-4 w-4" /></a>
+                Get Started <ChevronRightIcon className="h-4 w-4" />
               </WouterLink>
             </Button>
             <Button asChild variant="outline" size="lg" className="gap-2">
@@ -54,10 +54,8 @@ export default function HomePage() {
                 <p className="text-muted-foreground mb-4">
                   Learn the basics of YouBuidl Protocol and get up and running with your first project.
                 </p>
-                <WouterLink href="/docs/introduction">
-                  <a className="text-primary font-medium hover:underline flex items-center">
-                    Learn more <ChevronRightIcon className="h-4 w-4 ml-1" />
-                  </a>
+                <WouterLink href="/docs/introduction" className="text-primary font-medium hover:underline flex items-center">
+                  Learn more <ChevronRightIcon className="h-4 w-4 ml-1" />
                 </WouterLink>
               </CardContent>
             </Card>
@@ -73,10 +71,8 @@ export default function HomePage() {
                 <p className="text-muted-foreground mb-4">
                   Understand the architecture and fundamental concepts behind YouBuidl Protocol.
                 </p>
-                <WouterLink href="/docs/architecture">
-                  <a className="text-primary font-medium hover:underline flex items-center">
-                    Learn more <ChevronRightIcon className="h-4 w-4 ml-1" />
-                  </a>
+                <WouterLink href="/docs/architecture" className="text-primary font-medium hover:underline flex items-center">
+                  Learn more <ChevronRightIcon className="h-4 w-4 ml-1" />
                 </WouterLink>
               </CardContent>
             </Card>
@@ -92,10 +88,8 @@ export default function HomePage() {
                 <p className="text-muted-foreground mb-4">
                   Explore detailed documentation for all YouBuidl Protocol APIs and endpoints.
                 </p>
-                <WouterLink href="/docs/authentication">
-                  <a className="text-primary font-medium hover:underline flex items-center">
-                    Learn more <ChevronRightIcon className="h-4 w-4 ml-1" />
-                  </a>
+                <WouterLink href="/docs/authentication" className="text-primary font-medium hover:underline flex items-center">
+                  Learn more <ChevronRightIcon className="h-4 w-4 ml-1" />
                 </WouterLink>
               </CardContent>
             </Card>
@@ -111,10 +105,8 @@ export default function HomePage() {
                 <p className="text-muted-foreground mb-4">
                   Step-by-step tutorials and best practices for common tasks.
                 </p>
-                <WouterLink href="/docs/migrations">
-                  <a className="text-primary font-medium hover:underline flex items-center">
-                    Learn more <ChevronRightIcon className="h-4 w-4 ml-1" />
-                  </a>
+                <WouterLink href="/docs/migrations" className="text-primary font-medium hover:underline flex items-center">
+                  Learn more <ChevronRightIcon className="h-4 w-4 ml-1" />
                 </WouterLink>
               </CardContent>
             </Card>
@@ -130,10 +122,8 @@ export default function HomePage() {
                 <p className="text-muted-foreground mb-4">
                   Learn how to secure your YouBuidl Protocol applications and data.
                 </p>
-                <WouterLink href="/docs/security">
-                  <a className="text-primary font-medium hover:underline flex items-center">
-                    Learn more <ChevronRightIcon className="h-4 w-4 ml-1" />
-                  </a>
+                <WouterLink href="/docs/security" className="text-primary font-medium hover:underline flex items-center">
+                  Learn more <ChevronRightIcon className="h-4 w-4 ml-1" />
                 </WouterLink>
               </CardContent>
             </Card>
@@ -165,10 +155,8 @@ export default function HomePage() {
                 <p className="text-muted-foreground mb-4">
                   Find answers to commonly asked questions about YouBuidl Protocol.
                 </p>
-                <WouterLink href="/docs/faq">
-                  <a className="text-primary font-medium hover:underline flex items-center">
-                    View FAQ <ChevronRightIcon className="h-4 w-4 ml-1" />
-                  </a>
+                <WouterLink href="/docs/faq" className="text-primary font-medium hover:underline flex items-center">
+                  View FAQ <ChevronRightIcon className="h-4 w-4 ml-1" />
                 </WouterLink>
               </CardContent>
             </Card>
