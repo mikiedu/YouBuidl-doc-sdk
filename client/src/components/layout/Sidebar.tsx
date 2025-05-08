@@ -11,15 +11,16 @@ import { NavigationItem } from "@/types/docs";
 interface SidebarProps {
   navigation: NavigationItem[];
   isOpen: boolean;
+  setIsSidebarOpen: React.Dispatch<React.SetStateAction<boolean>>;
   currentPath: string;
 }
 
-export default function Sidebar({ navigation, isOpen, currentPath }: SidebarProps) {
+export default function Sidebar({ navigation, isOpen, setIsSidebarOpen, currentPath }: SidebarProps) {
   const { setTheme, theme } = useTheme();
   const [, navigate] = useLocation();
   const [expandedSections, setExpandedSections] = useState<Record<string, boolean>>({});
   const [searchQuery, setSearchQuery] = useState("");
-  
+
   // Function to toggle section expansion
   const toggleSection = (title: string) => {
     setExpandedSections(prev => ({
@@ -27,7 +28,7 @@ export default function Sidebar({ navigation, isOpen, currentPath }: SidebarProp
       [title]: !prev[title]
     }));
   };
-  
+
   // Function to handle search submission
   const handleSearchSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -35,32 +36,37 @@ export default function Sidebar({ navigation, isOpen, currentPath }: SidebarProp
       navigate(`/search?q=${encodeURIComponent(searchQuery)}`);
     }
   };
-  
+
   return (
-    <aside 
+    <aside
       className={cn(
-        "fixed inset-y-0 left-0 z-40 w-64 transform -translate-x-full lg:translate-x-0",
-        "transition-transform duration-300 ease-in-out bg-sidebar", 
-        "border-r border-sidebar-border overflow-y-auto",
-        isOpen && "translate-x-0"
+        "fixed inset-y-0 left-0 z-50 w-64 transform bg-sidebar-background border-r border-sidebar-border transition-transform duration-200 ease-in-out lg:translate-x-0 lg:static lg:z-0",
+        {
+          "translate-x-0": isOpen,
+          "-translate-x-full": !isOpen
+        }
       )}
     >
+      <div className="fixed inset-0 bg-black/50 lg:hidden"
+           style={{ display: isOpen ? 'block' : 'none' }}
+           onClick={() => setIsSidebarOpen(false)}
+      />
       {/* Logo and theme toggle (desktop) */}
       <div className="sticky top-0 z-10 bg-sidebar pt-4 px-4 pb-2 hidden lg:flex items-center justify-between">
         <Link href="/" className="flex items-center">
           <div className="h-8 w-8 mr-2 bg-primary rounded-md flex items-center justify-center text-primary-foreground font-bold">Y</div>
           <span className="text-lg font-semibold text-sidebar-foreground">YouBuidl Docs</span>
         </Link>
-        <Button 
-          variant="ghost" 
-          size="icon" 
+        <Button
+          variant="ghost"
+          size="icon"
           onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
           className="text-sidebar-foreground/80 hover:text-sidebar-foreground"
         >
           {theme === "dark" ? <SunIcon className="h-5 w-5" /> : <MoonIcon className="h-5 w-5" />}
         </Button>
       </div>
-      
+
       {/* Search (desktop) */}
       <div className="hidden lg:block px-4 py-2">
         <form onSubmit={handleSearchSubmit}>
@@ -76,7 +82,7 @@ export default function Sidebar({ navigation, isOpen, currentPath }: SidebarProp
           </div>
         </form>
       </div>
-      
+
       {/* Navigation */}
       <nav className="px-2 py-4">
         {navigation.map((section) => (
@@ -100,15 +106,15 @@ export default function Sidebar({ navigation, isOpen, currentPath }: SidebarProp
             <CollapsibleContent className="ml-5 mt-1">
               {section.items.map((item) => {
                 const isActive = currentPath === `/docs/${item.slug}`;
-                
+
                 return (
-                  <Link 
+                  <Link
                     key={item.slug}
                     href={`/docs/${item.slug}`}
                     className={cn(
                       "px-3 py-2 block text-sm rounded-md",
-                      isActive 
-                        ? "bg-primary/10 text-primary font-medium" 
+                      isActive
+                        ? "bg-primary/10 text-primary font-medium"
                         : "text-sidebar-foreground/80 hover:bg-sidebar-accent/50 hover:text-sidebar-foreground"
                     )}
                   >
@@ -120,16 +126,16 @@ export default function Sidebar({ navigation, isOpen, currentPath }: SidebarProp
           </Collapsible>
         ))}
       </nav>
-      
+
       {/* About and Social links */}
       <div className="px-4 py-3 mt-auto border-t border-sidebar-border">
         <div className="mb-3">
-          <Link 
-            href="/about" 
+          <Link
+            href="/about"
             className={cn(
               "flex items-center px-3 py-2 text-sm rounded-md",
-              currentPath === "/about" 
-                ? "bg-primary/10 text-primary font-medium" 
+              currentPath === "/about"
+                ? "bg-primary/10 text-primary font-medium"
                 : "text-sidebar-foreground/80 hover:bg-sidebar-accent/50 hover:text-sidebar-foreground"
             )}
           >
