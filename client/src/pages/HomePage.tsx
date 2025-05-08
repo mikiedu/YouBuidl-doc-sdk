@@ -167,10 +167,8 @@ export default function HomePage() {
                 <p className="text-muted-foreground mb-4">
                   Stay up to date with the latest YouBuidl Protocol releases and updates.
                 </p>
-                <WouterLink href="/docs/changelog">
-                  <a className="text-primary font-medium hover:underline flex items-center">
-                    View Changelog <ChevronRightIcon className="h-4 w-4 ml-1" />
-                  </a>
+                <WouterLink href="/docs/changelog" className="text-primary font-medium hover:underline flex items-center">
+                  View Changelog <ChevronRightIcon className="h-4 w-4 ml-1" />
                 </WouterLink>
               </CardContent>
             </Card>
