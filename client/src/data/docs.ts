@@ -10,7 +10,7 @@ export const sampleNavigation: NavigationItem[] = [
         title: "Introduction",
         slug: "introduction",
         items: [
-          { title: "What is Caldera", slug: "introduction#what-is-caldera" },
+          { title: "What is YouBuidl", slug: "introduction#what-is-youbuidl" },
           { title: "Key Features", slug: "introduction#key-features" }
         ]
       },
@@ -27,22 +27,22 @@ export const sampleNavigation: NavigationItem[] = [
     ]
   },
   {
-    title: "Core Concepts",
-    icon: "insights",
+    title: "Core Components",
+    icon: "construction",
     items: [
       {
-        title: "Architecture",
-        slug: "architecture",
+        title: "Social SDK",
+        slug: "social-sdk",
         items: []
       },
       {
-        title: "Data Model",
-        slug: "data-model",
+        title: "Data Layer",
+        slug: "data-layer",
         items: []
       },
       {
-        title: "Security",
-        slug: "security",
+        title: "DeFi Integrations",
+        slug: "defi-integrations",
         items: []
       }
     ]
@@ -57,34 +57,44 @@ export const sampleNavigation: NavigationItem[] = [
         items: []
       },
       {
-        title: "Endpoints",
-        slug: "endpoints",
+        title: "Users & Profiles",
+        slug: "users-profiles",
         items: []
       },
       {
-        title: "Error Handling",
-        slug: "error-handling",
+        title: "Posts & Content",
+        slug: "posts-content",
+        items: []
+      },
+      {
+        title: "Reactions",
+        slug: "reactions",
         items: []
       }
     ]
   },
   {
-    title: "Guides",
-    icon: "book",
+    title: "DeFi Features",
+    icon: "payments",
     items: [
       {
-        title: "Migrations",
-        slug: "migrations",
+        title: "Tipping",
+        slug: "tipping",
         items: []
       },
       {
-        title: "Performance",
-        slug: "performance",
+        title: "Rewards",
+        slug: "rewards",
         items: []
       },
       {
-        title: "Best Practices",
-        slug: "best-practices",
+        title: "Governance",
+        slug: "governance",
+        items: []
+      },
+      {
+        title: "NFT Integration",
+        slug: "nft-integration",
         items: []
       }
     ]
@@ -104,8 +114,8 @@ export const sampleNavigation: NavigationItem[] = [
         items: []
       },
       {
-        title: "Changelog",
-        slug: "changelog",
+        title: "Examples",
+        slug: "examples",
         items: []
       }
     ]
@@ -117,16 +127,18 @@ export const categoryMap: Record<string, string> = {
   "introduction": "Introduction",
   "installation": "Installation",
   "quick-start": "Quick Start",
-  "architecture": "Architecture",
-  "data-model": "Data Model",
-  "security": "Security",
+  "social-sdk": "Social SDK",
+  "data-layer": "Data Layer",
+  "defi-integrations": "DeFi Integrations",
   "authentication": "Authentication",
-  "endpoints": "Endpoints",
-  "error-handling": "Error Handling",
-  "migrations": "Migrations",
-  "performance": "Performance",
-  "best-practices": "Best Practices",
+  "users-profiles": "Users & Profiles",
+  "posts-content": "Posts & Content",
+  "reactions": "Reactions",
+  "tipping": "Tipping",
+  "rewards": "Rewards", 
+  "governance": "Governance",
+  "nft-integration": "NFT Integration",
   "faq": "FAQ",
   "community": "Community",
-  "changelog": "Changelog"
+  "examples": "Examples"
 };

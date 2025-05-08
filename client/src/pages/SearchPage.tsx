@@ -21,7 +21,7 @@ export default function SearchPage() {
   });
   
   useEffect(() => {
-    document.title = `Search: ${query} | Caldera Docs`;
+    document.title = `Search: ${query} | YouBuidl Protocol Docs`;
   }, [query]);
   
   const handleSearch = (newQuery: string) => {

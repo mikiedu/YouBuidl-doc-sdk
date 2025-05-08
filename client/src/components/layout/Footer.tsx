@@ -8,11 +8,11 @@ export default function Footer() {
         <div className="flex flex-col md:flex-row md:justify-between">
           <div className="mb-8 md:mb-0">
             <div className="flex items-center mb-4">
-              <div className="h-8 w-8 mr-2 bg-primary rounded-md flex items-center justify-center text-primary-foreground font-bold">C</div>
-              <span className="text-lg font-semibold text-foreground">Caldera</span>
+              <div className="h-8 w-8 mr-2 bg-primary rounded-md flex items-center justify-center text-primary-foreground font-bold">Y</div>
+              <span className="text-lg font-semibold text-foreground">YouBuidl Protocol</span>
             </div>
             <p className="text-sm text-muted-foreground max-w-md">
-              Building the foundation for next-generation decentralized applications.
+              Building the foundation for next-generation decentralized social applications with DeFi integration.
             </p>
           </div>
           <div className="grid grid-cols-2 gap-8 sm:grid-cols-3 sm:gap-6">
@@ -44,7 +44,7 @@ export default function Footer() {
         </div>
         <div className="mt-8 pt-8 border-t border-border flex flex-col md:flex-row md:justify-between md:items-center">
           <p className="text-sm text-muted-foreground mb-4 md:mb-0">
-            &copy; {new Date().getFullYear()} Caldera Labs, Inc. All rights reserved.
+            &copy; {new Date().getFullYear()} YouBuidl Protocol. All rights reserved.
           </p>
           <div className="flex space-x-6">
             <a href="#" className="text-muted-foreground hover:text-foreground">
