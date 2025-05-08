@@ -41,6 +41,9 @@ export default function MobileHeader({ toggleSidebar }: MobileHeaderProps) {
           </Link>
         </div>
         <div className="flex items-center space-x-2">
+          <Link href="/about" className="text-muted-foreground hover:text-foreground text-sm font-medium px-2">
+            About
+          </Link>
           <Button 
             variant="ghost" 
             size="icon" 

@@ -26,7 +26,7 @@ export default function Breadcrumbs({ items }: BreadcrumbsProps) {
         </li>
         
         {items.map((item, index) => (
-          <React.Fragment key={item.href}>
+          <React.Fragment key={item.href || index}>
             <li className="flex items-center">
               <ChevronRightIcon className="h-4 w-4 text-muted-foreground/70" />
             </li>

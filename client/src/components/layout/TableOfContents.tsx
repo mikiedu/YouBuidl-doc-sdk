@@ -54,27 +54,21 @@ export default function TableOfContents({ headings }: TableOfContentsProps) {
           <h4 className="text-sm font-semibold text-foreground mb-2">Resources</h4>
           <ul className="text-sm space-y-1.5">
             <li>
-              <WouterLink href="/docs/api-reference/authentication">
-                <a className="text-primary flex items-center">
-                  <span className="material-icons text-sm mr-1">description</span>
-                  API Reference
-                </a>
+              <WouterLink href="/docs/api-reference/authentication" className="text-primary flex items-center">
+                <span className="material-icons text-sm mr-1">description</span>
+                API Reference
               </WouterLink>
             </li>
             <li>
-              <WouterLink href="/docs/guides">
-                <a className="text-primary flex items-center">
-                  <span className="material-icons text-sm mr-1">code</span>
-                  Examples
-                </a>
+              <WouterLink href="/docs/guides" className="text-primary flex items-center">
+                <span className="material-icons text-sm mr-1">code</span>
+                Examples
               </WouterLink>
             </li>
             <li>
-              <WouterLink href="/docs/resources/faq">
-                <a className="text-primary flex items-center">
-                  <span className="material-icons text-sm mr-1">help</span>
-                  FAQ
-                </a>
+              <WouterLink href="/docs/resources/faq" className="text-primary flex items-center">
+                <span className="material-icons text-sm mr-1">help</span>
+                FAQ
               </WouterLink>
             </li>
           </ul>

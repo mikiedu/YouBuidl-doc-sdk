@@ -48,8 +48,8 @@ export default function Sidebar({ navigation, isOpen, currentPath }: SidebarProp
       {/* Logo and theme toggle (desktop) */}
       <div className="sticky top-0 z-10 bg-sidebar pt-4 px-4 pb-2 hidden lg:flex items-center justify-between">
         <Link href="/" className="flex items-center">
-          <div className="h-8 w-8 mr-2 bg-primary rounded-md flex items-center justify-center text-primary-foreground font-bold">C</div>
-          <span className="text-lg font-semibold text-sidebar-foreground">Caldera Docs</span>
+          <div className="h-8 w-8 mr-2 bg-primary rounded-md flex items-center justify-center text-primary-foreground font-bold">Y</div>
+          <span className="text-lg font-semibold text-sidebar-foreground">YouBuidl Docs</span>
         </Link>
         <Button 
           variant="ghost" 
@@ -121,16 +121,30 @@ export default function Sidebar({ navigation, isOpen, currentPath }: SidebarProp
         ))}
       </nav>
       
-      {/* Social links */}
+      {/* About and Social links */}
       <div className="px-4 py-3 mt-auto border-t border-sidebar-border">
+        <div className="mb-3">
+          <Link 
+            href="/about" 
+            className={cn(
+              "flex items-center px-3 py-2 text-sm rounded-md",
+              currentPath === "/about" 
+                ? "bg-primary/10 text-primary font-medium" 
+                : "text-sidebar-foreground/80 hover:bg-sidebar-accent/50 hover:text-sidebar-foreground"
+            )}
+          >
+            <span className="material-icons text-sm mr-2">info</span>
+            About
+          </Link>
+        </div>
         <div className="flex items-center">
-          <a href="https://github.com/caldera" target="_blank" rel="noopener noreferrer" className="text-sidebar-foreground/60 hover:text-sidebar-foreground mr-4">
+          <a href="https://github.com/youbuidl" target="_blank" rel="noopener noreferrer" className="text-sidebar-foreground/60 hover:text-sidebar-foreground mr-4">
             <span className="material-icons">code</span>
           </a>
-          <a href="https://twitter.com/caldera" target="_blank" rel="noopener noreferrer" className="text-sidebar-foreground/60 hover:text-sidebar-foreground mr-4">
+          <a href="https://twitter.com/youbuidl" target="_blank" rel="noopener noreferrer" className="text-sidebar-foreground/60 hover:text-sidebar-foreground mr-4">
             <span className="material-icons">share</span>
           </a>
-          <a href="https://discord.com/caldera" target="_blank" rel="noopener noreferrer" className="text-sidebar-foreground/60 hover:text-sidebar-foreground">
+          <a href="https://discord.com/youbuidl" target="_blank" rel="noopener noreferrer" className="text-sidebar-foreground/60 hover:text-sidebar-foreground">
             <span className="material-icons">chat</span>
           </a>
         </div>
