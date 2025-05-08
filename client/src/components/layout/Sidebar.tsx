@@ -4,6 +4,7 @@ import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "@/components/ui/collapsible";
+import { Sheet, SheetContent } from "@/components/ui/sheet";
 import { MoonIcon, SunIcon, SearchIcon } from "lucide-react";
 import { useTheme } from "@/hooks/use-theme";
 import { NavigationItem } from "@/types/docs";
@@ -21,7 +22,6 @@ export default function Sidebar({ navigation, isOpen, setIsSidebarOpen, currentP
   const [expandedSections, setExpandedSections] = useState<Record<string, boolean>>({});
   const [searchQuery, setSearchQuery] = useState("");
 
-  // Function to toggle section expansion
   const toggleSection = (title: string) => {
     setExpandedSections(prev => ({
       ...prev,
@@ -29,53 +29,38 @@ export default function Sidebar({ navigation, isOpen, setIsSidebarOpen, currentP
     }));
   };
 
-  // Function to handle search submission
   const handleSearchSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     if (searchQuery.trim()) {
       navigate(`/search?q=${encodeURIComponent(searchQuery)}`);
+      setIsSidebarOpen(false);
     }
   };
 
-  return (
-    <aside
-      className={cn(
-        "fixed inset-y-0 left-0 z-50 w-64 transform bg-sidebar-background border-r border-sidebar-border transition-transform duration-200 ease-in-out lg:translate-x-0 lg:static lg:z-0",
-        {
-          "translate-x-0": isOpen,
-          "-translate-x-full": !isOpen
-        }
-      )}
-    >
-      <div className="fixed inset-0 bg-black/50 lg:hidden"
-           style={{ display: isOpen ? 'block' : 'none' }}
-           onClick={() => setIsSidebarOpen(false)}
-      />
-      {/* Logo and theme toggle (desktop) */}
-      <div className="sticky top-0 z-10 bg-sidebar pt-4 px-4 pb-2 hidden lg:flex items-center justify-between">
+  const SidebarContent = () => (
+    <>
+      <div className="sticky top-0 z-10 bg-background pt-4 px-4 pb-2 flex items-center justify-between">
         <Link href="/" className="flex items-center">
-          <div className="h-8 w-8 mr-2 bg-primary rounded-md flex items-center justify-center text-primary-foreground font-bold">Y</div>
-          <span className="text-lg font-semibold text-sidebar-foreground">YouBuidl Docs</span>
+          <img src="/youbuidlsocialsvg.svg" alt="YouBuidl Logo" className="h-8 w-auto mr-2" />
+          <span className="text-lg font-semibold">YouBuidl Docs</span>
         </Link>
         <Button
           variant="ghost"
           size="icon"
           onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
-          className="text-sidebar-foreground/80 hover:text-sidebar-foreground"
         >
           {theme === "dark" ? <SunIcon className="h-5 w-5" /> : <MoonIcon className="h-5 w-5" />}
         </Button>
       </div>
 
-      {/* Search (desktop) */}
-      <div className="hidden lg:block px-4 py-2">
+      <div className="px-4 py-2">
         <form onSubmit={handleSearchSubmit}>
           <div className="relative">
-            <SearchIcon className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-sidebar-foreground/60" />
+            <SearchIcon className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
             <Input
               type="text"
               placeholder="Search documentation..."
-              className="w-full pl-10 pr-4 py-2 bg-sidebar-accent text-sidebar-foreground focus:ring-primary"
+              className="w-full pl-10"
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
             />
@@ -83,7 +68,6 @@ export default function Sidebar({ navigation, isOpen, setIsSidebarOpen, currentP
         </form>
       </div>
 
-      {/* Navigation */}
       <nav className="px-2 py-4">
         {navigation.map((section) => (
           <Collapsible
@@ -93,7 +77,7 @@ export default function Sidebar({ navigation, isOpen, setIsSidebarOpen, currentP
             className="mb-3"
           >
             <CollapsibleTrigger className="w-full">
-              <div className="px-4 py-2 flex items-center justify-between text-sm font-medium text-sidebar-foreground rounded-md hover:bg-sidebar-accent/50">
+              <div className="px-4 py-2 flex items-center justify-between text-sm font-medium rounded-md hover:bg-accent/50">
                 <div className="flex items-center">
                   <span className="material-icons text-sm mr-2">{section.icon}</span>
                   <span>{section.title}</span>
@@ -106,16 +90,16 @@ export default function Sidebar({ navigation, isOpen, setIsSidebarOpen, currentP
             <CollapsibleContent className="ml-5 mt-1">
               {section.items.map((item) => {
                 const isActive = currentPath === `/docs/${item.slug}`;
-
                 return (
                   <Link
                     key={item.slug}
                     href={`/docs/${item.slug}`}
+                    onClick={() => setIsSidebarOpen(false)}
                     className={cn(
                       "px-3 py-2 block text-sm rounded-md",
                       isActive
-                        ? "bg-primary/10 text-primary font-medium"
-                        : "text-sidebar-foreground/80 hover:bg-sidebar-accent/50 hover:text-sidebar-foreground"
+                        ? "bg-[#CDEB63] text-black font-medium"
+                        : "hover:bg-accent/50"
                     )}
                   >
                     {item.title}
@@ -126,35 +110,22 @@ export default function Sidebar({ navigation, isOpen, setIsSidebarOpen, currentP
           </Collapsible>
         ))}
       </nav>
+    </>
+  );
 
-      {/* About and Social links */}
-      <div className="px-4 py-3 mt-auto border-t border-sidebar-border">
-        <div className="mb-3">
-          <Link
-            href="/about"
-            className={cn(
-              "flex items-center px-3 py-2 text-sm rounded-md",
-              currentPath === "/about"
-                ? "bg-primary/10 text-primary font-medium"
-                : "text-sidebar-foreground/80 hover:bg-sidebar-accent/50 hover:text-sidebar-foreground"
-            )}
-          >
-            <span className="material-icons text-sm mr-2">info</span>
-            About
-          </Link>
-        </div>
-        <div className="flex items-center">
-          <a href="https://github.com/youbuidl" target="_blank" rel="noopener noreferrer" className="text-sidebar-foreground/60 hover:text-sidebar-foreground mr-4">
-            <span className="material-icons">code</span>
-          </a>
-          <a href="https://twitter.com/youbuidl" target="_blank" rel="noopener noreferrer" className="text-sidebar-foreground/60 hover:text-sidebar-foreground mr-4">
-            <span className="material-icons">share</span>
-          </a>
-          <a href="https://discord.com/youbuidl" target="_blank" rel="noopener noreferrer" className="text-sidebar-foreground/60 hover:text-sidebar-foreground">
-            <span className="material-icons">chat</span>
-          </a>
-        </div>
-      </div>
-    </aside>
+  return (
+    <>
+      {/* Mobile Drawer */}
+      <Sheet open={isOpen} onOpenChange={setIsSidebarOpen}>
+        <SheetContent side="left" className="w-[280px] p-0">
+          <SidebarContent />
+        </SheetContent>
+      </Sheet>
+
+      {/* Desktop Sidebar */}
+      <aside className="hidden lg:block w-[280px] border-r">
+        <SidebarContent />
+      </aside>
+    </>
   );
 }
