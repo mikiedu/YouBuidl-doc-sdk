@@ -1,3 +1,6 @@
+
+"use client"
+
 import * as React from "react"
 import { createContext, useContext, useEffect, useState } from "react"
 
@@ -28,14 +31,12 @@ export function ThemeProvider({
   ...props
 }: ThemeProviderProps) {
   const [theme, setTheme] = useState<Theme>(() => {
-    const stored = localStorage.getItem(storageKey) as Theme;
-    const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
-    return stored || (prefersDark ? "dark" : "light");
+    const storedTheme = localStorage.getItem(storageKey) as Theme
+    return storedTheme || defaultTheme
   })
 
   useEffect(() => {
     const root = window.document.documentElement
-
     root.classList.remove("light", "dark")
 
     if (theme === "system") {
@@ -51,7 +52,8 @@ export function ThemeProvider({
     }
 
     root.classList.add(theme)
-  }, [theme])
+    localStorage.setItem(storageKey, theme)
+  }, [theme, storageKey])
 
   const value = {
     theme,
