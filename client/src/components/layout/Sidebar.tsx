@@ -11,7 +11,7 @@ import { NavigationItem } from "@/types/docs";
 interface SidebarProps {
   navigation: NavigationItem[];
   isOpen: boolean;
-  setIsSidebarOpen: React.Dispatch<React.SetStateAction<boolean>>;
+  setIsSidebarOpen: (open: boolean) => void;
   currentPath: string;
 }
 

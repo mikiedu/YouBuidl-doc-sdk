@@ -38,7 +38,8 @@ export default function Layout({ children }: LayoutProps) {
       <div className="flex flex-1 flex-col lg:flex-row">
         <Sidebar 
           navigation={navigation}
-          isOpen={isSidebarOpen} 
+          isOpen={isSidebarOpen}
+          setIsSidebarOpen={setIsSidebarOpen}
           currentPath={location}
         />
         
