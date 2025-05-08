@@ -12,10 +12,10 @@ export default function HomePage() {
       <div className="bg-gradient-to-b from-primary/5 via-primary/5 to-transparent dark:from-primary/10 dark:via-primary/5 dark:to-transparent">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-20 text-center">
           <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-foreground mb-4">
-            Caldera Documentation
+            YouBuidl Protocol Documentation
           </h1>
           <p className="text-lg md:text-xl text-muted-foreground mb-8 max-w-3xl mx-auto">
-            Comprehensive guides, API references, and tutorials for building decentralized applications with Caldera
+            Comprehensive guides, API references, and tutorials for building decentralized social applications with DeFi integration
           </p>
           
           <div className="max-w-2xl mx-auto mb-8">
@@ -29,7 +29,7 @@ export default function HomePage() {
               </WouterLink>
             </Button>
             <Button asChild variant="outline" size="lg" className="gap-2">
-              <a href="https://github.com/caldera" target="_blank" rel="noopener noreferrer">
+              <a href="https://github.com/youbuidl" target="_blank" rel="noopener noreferrer">
                 <CodeIcon className="h-4 w-4" /> GitHub
               </a>
             </Button>
@@ -52,7 +52,7 @@ export default function HomePage() {
                 </div>
                 <h3 className="text-lg font-semibold mb-2">Getting Started</h3>
                 <p className="text-muted-foreground mb-4">
-                  Learn the basics of Caldera and get up and running with your first project.
+                  Learn the basics of YouBuidl Protocol and get up and running with your first project.
                 </p>
                 <WouterLink href="/docs/introduction">
                   <a className="text-primary font-medium hover:underline flex items-center">
@@ -71,7 +71,7 @@ export default function HomePage() {
                 </div>
                 <h3 className="text-lg font-semibold mb-2">Core Concepts</h3>
                 <p className="text-muted-foreground mb-4">
-                  Understand the architecture and fundamental concepts behind Caldera.
+                  Understand the architecture and fundamental concepts behind YouBuidl Protocol.
                 </p>
                 <WouterLink href="/docs/architecture">
                   <a className="text-primary font-medium hover:underline flex items-center">
@@ -90,7 +90,7 @@ export default function HomePage() {
                 </div>
                 <h3 className="text-lg font-semibold mb-2">API Reference</h3>
                 <p className="text-muted-foreground mb-4">
-                  Explore detailed documentation for all Caldera APIs and endpoints.
+                  Explore detailed documentation for all YouBuidl Protocol APIs and endpoints.
                 </p>
                 <WouterLink href="/docs/authentication">
                   <a className="text-primary font-medium hover:underline flex items-center">
@@ -128,7 +128,7 @@ export default function HomePage() {
                 </div>
                 <h3 className="text-lg font-semibold mb-2">Security</h3>
                 <p className="text-muted-foreground mb-4">
-                  Learn how to secure your Caldera applications and data.
+                  Learn how to secure your YouBuidl Protocol applications and data.
                 </p>
                 <WouterLink href="/docs/security">
                   <a className="text-primary font-medium hover:underline flex items-center">
@@ -148,7 +148,7 @@ export default function HomePage() {
               <CardContent className="p-6">
                 <h3 className="text-lg font-semibold mb-3">Community</h3>
                 <p className="text-muted-foreground mb-4">
-                  Join our community of developers building with Caldera.
+                  Join our community of developers building with YouBuidl Protocol.
                 </p>
                 <a 
                   href="#" 
@@ -163,7 +163,7 @@ export default function HomePage() {
               <CardContent className="p-6">
                 <h3 className="text-lg font-semibold mb-3">FAQ</h3>
                 <p className="text-muted-foreground mb-4">
-                  Find answers to commonly asked questions about Caldera.
+                  Find answers to commonly asked questions about YouBuidl Protocol.
                 </p>
                 <WouterLink href="/docs/faq">
                   <a className="text-primary font-medium hover:underline flex items-center">
@@ -177,7 +177,7 @@ export default function HomePage() {
               <CardContent className="p-6">
                 <h3 className="text-lg font-semibold mb-3">Changelog</h3>
                 <p className="text-muted-foreground mb-4">
-                  Stay up to date with the latest Caldera releases and updates.
+                  Stay up to date with the latest YouBuidl Protocol releases and updates.
                 </p>
                 <WouterLink href="/docs/changelog">
                   <a className="text-primary font-medium hover:underline flex items-center">
