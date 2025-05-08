@@ -37,7 +37,7 @@ export default function MobileHeader({ toggleSidebar }: MobileHeaderProps) {
           </Button>
           <Link href="/" className="flex items-center">
             <img
-              src="/youbuidlsocialsvg.svg"
+              src="./youbuidlsocialsvg.svg"
               alt="YouBuidl Logo"
               className="h-8 w-auto mr-2"
             />

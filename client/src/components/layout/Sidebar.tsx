@@ -41,7 +41,7 @@ export default function Sidebar({ navigation, isOpen, setIsSidebarOpen, currentP
     <>
       <div className="sticky top-0 z-10 bg-background pt-4 px-4 pb-2 flex items-center justify-between">
         <Link href="/" className="flex items-center">
-          <img src="/youbuidlsocialsvg.svg" alt="YouBuidl Logo" className="h-8 w-auto mr-2" />
+          <img src="./youbuidlsocialsvg.svg" alt="YouBuidl Logo" className="h-8 w-auto mr-2" />
           <span className="text-lg font-semibold">YouBuidl Docs</span>
         </Link>
         <Button
