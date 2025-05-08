@@ -97,6 +97,13 @@
   }
 }
 
+@layer base {
+  :root {
+    --custom-button: 72 84% 65%;
+    --custom-button-foreground: 0 0% 0%;
+  }
+}
+
 @layer components {
   .doc-content {
     @apply prose dark:prose-invert prose-slate max-w-none
