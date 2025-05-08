@@ -8,7 +8,7 @@ export default function Footer() {
         <div className="flex flex-col md:flex-row md:justify-between">
           <div className="mb-8 md:mb-0">
             <div className="flex items-center mb-4">
-              <div className="h-8 w-8 mr-2 bg-primary rounded-md flex items-center justify-center text-primary-foreground font-bold">Y</div>
+              <img src="/youbuidlsocialsvg.svg" alt="YouBuidl Logo" className="h-8 w-auto mr-2" />
               <span className="text-lg font-semibold text-foreground">YouBuidl Protocol</span>
             </div>
             <p className="text-sm text-muted-foreground max-w-md">

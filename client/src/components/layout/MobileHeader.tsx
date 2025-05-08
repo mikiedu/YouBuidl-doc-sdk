@@ -36,7 +36,7 @@ export default function MobileHeader({ toggleSidebar }: MobileHeaderProps) {
             <MenuIcon className="h-5 w-5" />
           </Button>
           <Link href="/" className="flex items-center">
-            <div className="h-8 w-8 mr-2 bg-primary rounded-md flex items-center justify-center text-primary-foreground font-bold">Y</div>
+            <img src="/youbuidlsocialsvg.svg" alt="YouBuidl Logo" className="h-8 w-auto mr-2" />
             <span className="text-lg font-semibold text-foreground">YouBuidl Docs</span>
           </Link>
         </div>
