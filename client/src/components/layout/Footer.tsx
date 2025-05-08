@@ -27,7 +27,7 @@ export default function Footer() {
             <div>
               <h3 className="text-sm font-semibold text-foreground mb-4">Resources</h3>
               <ul className="text-sm space-y-3">
-                <li><WouterLink href="/docs/introduction"><a className="text-muted-foreground hover:text-primary">Documentation</a></WouterLink></li>
+                <li><WouterLink href="/docs/introduction" className="text-muted-foreground hover:text-primary">Documentation</WouterLink></li>
                 <li><a href="#" className="text-muted-foreground hover:text-primary">Tutorials</a></li>
                 <li><a href="#" className="text-muted-foreground hover:text-primary">Case Studies</a></li>
               </ul>
