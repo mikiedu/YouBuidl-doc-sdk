@@ -28,7 +28,7 @@ export default function DocPage() {
   useEffect(() => {
     // Set page title based on doc
     if (doc?.title) {
-      document.title = `${doc.title} | Caldera Docs`;
+      document.title = `${doc.title} | YouBuidl Protocol Docs`;
     }
     
     // Scroll to hash if present
@@ -83,7 +83,7 @@ export default function DocPage() {
             </div>
             <div className="flex items-center mt-3 sm:mt-0">
               <a 
-                href={`https://github.com/caldera/docs/edit/main/${params.slug}.md`}
+                href={`https://github.com/youbuidl/docs/edit/main/${params.slug}.md`}
                 target="_blank" 
                 rel="noopener noreferrer"
                 className="inline-flex items-center text-sm text-muted-foreground hover:text-primary"
